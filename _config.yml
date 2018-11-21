@@ -1,3 +1,4 @@
+# github setting
 github: [metadata]
 encoding: UTF-8
 kramdown:
@@ -7,6 +8,12 @@ future: true
 jailed: false
 theme: jekyll-theme-primer
 gfm_quirks: paragraph_end
+
+# Site settings
+title: "blogs"
+description: "Do not go gentle into that good night..."
+baseurl: ""
+url: "http://omnbmh.github.io"
 
 # 下面的部分不能修改
 #lsi: false
