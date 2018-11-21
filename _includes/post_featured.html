@@ -1,0 +1,8 @@
+<div class="list-group">
+  <a href="{{ post.url }}" class="list-group-item">
+    <h4 class="list-group-item-heading">{{ post.title }}</h4>
+    <p>{{ post.date | date: "%Y-%m-%d" }}</p>
+    <p class="list-group-item-text">{{ post.content | strip_html | truncatewords: site.theme.featured_wordcount }}...</p>
+    <p class="baseline">{{ post.baseline }}</p>
+  </a>
+</div>
