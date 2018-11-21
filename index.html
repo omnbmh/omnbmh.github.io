@@ -1,39 +1,32 @@
 ---
 layout: default
-title: Home
+title: 首页
 ---
 
-<div class="home">
-
-  <ul class="posts">
-    {% for post in paginator.posts %}
-    <li>
-      <h1 >{{ post.title }}</h1>
-      <span>{{ post.date | date: "%b %-d, %Y" }}</span>
-      <p>{{ post.excerpt }}</p>
-      <div class="continue">
-        <a href="{{ post.url | prepend: site.baseurl }}">&bull;&bull;&bull;</a>
-      </div>
-    </li>
-    {% endfor %}
-  </ul>
-
-  <div class="pagination">
-    {% if paginator.previous_page %}
-      {% if page == 2 %}
-        <a class="page-link" href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">prv</a>
-      {% else %}
-        <a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">prv</a>
-      {% endif %}
-    {% else %}
-      <span class="page-link">prv</span>
-    {% endif %}
-
-    {% if paginator.next_page %}
-      <a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">nxt</a>
-    {% else %}
-      <span class="page-link">nxt</span>
-    {% endif %}
+<div id="featured" class="panel panel-default">
+	<div class="panel-heading">
+    <h3 class="panel-title">最新</h3>
   </div>
-
+  <div class="panel-body">
+		{% for post in site.posts offset: 0 limit: site.theme.homepage_featured %}
+			{% include post_featured.html %}
+		{% endfor %}
+  </div>
+	<div class="panel-footer">###</div>
+</div>
+<div id="posts" class="panel panel-default">
+	<div class="panel-heading">
+    <h3 class="panel-title">更早</h3>
+  </div>
+  <div class="panel-body">
+		{% for post in site.posts offset: site.theme.homepage_featured limit: site.theme.homepage_posts %}
+			{% include post_summary.html %}
+		{% endfor %}
+		<div class="btn-group btn-group-sm">
+			<button type="button" class="btn btn-default">---</button>
+		  <button type="button" class="btn btn-default"><a href="/articles.html" class="more">查看全部</a></button>
+		  <button type="button" class="btn btn-default">---</button>
+		</div>
+  </div>
+	<div class="panel-footer">###</div>
 </div>
