@@ -17,7 +17,9 @@ baseurl: ""
 url: "http://omnbmh.github.io"
 theme:
   site_name: Tech Blogs
-
+  homepage_featured: 1
+  homepage_posts: 2
+  featured_wordcount: 20
 
 # 下面的部分不能修改
 #lsi: false
