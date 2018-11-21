@@ -9,7 +9,7 @@ title: 首页
   </div>
   <div class="panel-body">
 		{% for post in site.posts offset: 0 limit: site.theme.homepage_featured %}
-			111111
+			{% include post_featured.html %}
 		{% endfor %}
   </div>
 	<div class="panel-footer">###</div>
