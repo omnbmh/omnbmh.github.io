@@ -8,13 +8,14 @@ jailed: false
 theme: jekyll-theme-primer
 gfm_quirks: paragraph_end
 
-lsi: false
-safe: true
+# 下面的部分不能修改
+#lsi: false
+#safe: true
 # source: [your repo's top level directory]
-incremental: false
-highlighter: rouge
-gist:
-  noscript: false
-  kramdown:
-  math_engine: mathjax
-  syntax_highlighter: rouge
+#incremental: false
+#highlighter: rouge
+#gist:
+#  noscript: false
+#  kramdown:
+#  math_engine: mathjax
+#  syntax_highlighter: rouge
