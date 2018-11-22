@@ -1,6 +1,6 @@
 <div class="widget">
   <h3>最新发布</h3>
-  {% for post in site.related_posts %}
+  {% for post in site.posts offset: 0 limit: site.theme.homepage_featured %}
     {% include post_summary.html %}
   {% endfor %}
 </div>
