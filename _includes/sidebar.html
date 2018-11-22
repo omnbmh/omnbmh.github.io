@@ -1,0 +1,6 @@
+<div class="widget">
+  <h3>最新发布</h3>
+  {% for post in site.related_posts %}
+    {% include post_summary.html %}
+  {% endfor %}
+</div>
