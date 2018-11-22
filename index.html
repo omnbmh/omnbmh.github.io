@@ -15,7 +15,7 @@ description: "首页"
 				{% for post in site.categories[category_name] %}
 			  <a href="{{ post.url }}" class="list-group-item">
 			    <h4 class="list-group-item-heading">{{post.title}}</h4>
-			    <p class="list-group-item-text">321...</p>
+			    <p class="list-group-item-text">321... {{ post.date | date: "%Y-%m-%d" }}</p>
 			  </a>
 				{% endfor %}
 			</div>
