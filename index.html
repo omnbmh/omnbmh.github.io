@@ -2,7 +2,22 @@
 layout: default
 title: 首页
 ---
-
+<ul class="list-group">
+{% for category in site.categories %}
+	  <li class="list-group-item">
+	    <span class="badge">14</span>
+	    {{ category_name }}
+			<ul class="list-group">
+				{% for post in site.categories[category_name] %}
+				<li class="list-group-item">
+				<span class="badge">14</span>
+		    {{post.title}}
+				</li>
+				{% endfor %}
+			</ul>
+	  </li>
+{% endfor %}
+</ul>
 <div id="featured" class="panel panel-default">
 	<div class="panel-heading">
     <h3 class="panel-title">最新</h3>
