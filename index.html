@@ -6,12 +6,11 @@ title: 首页
 {% for category in site.categories %}
 	  <li class="list-group-item">
 			{% capture category_name %}{{ category | first }}{% endcapture %}
-	    <span class="badge">14</span>
-	    {{ category_name }}
+	    <span class="badge">{{ site.categories[category_name].size }}</span>
+	    <h3>{{ category_name }}</h3>
 			<ul class="list-group">
 				{% for post in site.categories[category_name] %}
 				<li class="list-group-item">
-				<span class="badge">14</span>
 		    {{post.title}}
 				</li>
 				{% endfor %}
