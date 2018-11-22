@@ -2,17 +2,17 @@
 layout: default
 ---
 
-<div id="post">
+<main id="post" class="col-md-8">
 <h1>{{ page.title }}</h1>
 <p>{{ page.date | date: "%Y-%m-%d" }}</p>
 <p class="entry-tags">{% for tag in page.tags %}<a href="{{ site.url }}/tags.html#{{ tag | cgi_escape }}" title="Pages tagged {{ tag }}" rel="tag">{{ tag }}</a>{% unless forloop.last %} &bull; {% endunless %}{% endfor %}</p>
 {{ content }}
-
-	<div id="posts">
-		<h3>更多</h3>
-		{% for post in site.related_posts %}
-			{% include post_summary.html %}
-		{% endfor %}
-	</div>
-
+</main>
+<div class="col-md-4 sidebar">
+		<div class="widget">
+			<h3>更多</h3>
+			{% for post in site.related_posts %}
+				{% include post_summary.html %}
+			{% endfor %}
+		</div>
 </div>
