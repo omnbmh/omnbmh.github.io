@@ -3,7 +3,7 @@ layout: post
 title: Linux pwd 命令
 date: 2016-01-03 16:16:16
 tags: [linux,shell]
-categories:
+categories: linux-manual
 baseline:
 ---
 

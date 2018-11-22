@@ -3,7 +3,7 @@ layout: post
 title: Linux lsof 命令
 date: 2016-05-01 16:16:16
 tags: [linux,shell]
-categories:
+categories: linux-manual
 baseline:
 ---
 
