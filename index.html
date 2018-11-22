@@ -5,6 +5,7 @@ title: 首页
 <ul class="list-group">
 {% for category in site.categories %}
 	  <li class="list-group-item">
+			{% capture category_name %}{{ category | first }}{% endcapture %}
 	    <span class="badge">14</span>
 	    {{ category_name }}
 			<ul class="list-group">
