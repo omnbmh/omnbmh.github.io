@@ -9,8 +9,9 @@ baseline:
 
 Hyperledger项目是区块链技术中第一个面向企业应用场景开源分布式账本平台。
 
-官网：https://www.hyperledger.org
-Github：https://github.com/hyperledger
+官网： https://www.hyperledger.org
+
+Github： https://github.com/hyperledger
 
 ### 0x01 Env
 - Ubuntu 18.04
