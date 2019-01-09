@@ -7,7 +7,10 @@ categories: [Hyperledger Fabric]
 baseline:
 ---
 
-# Hyperledger Fabric 环境准备（一）
+Hyperledger项目是区块链技术中第一个面向企业应用场景开源分布式账本平台。
+
+官网：https://www.hyperledger.org
+Github：https://github.com/hyperledger
 
 ### 0x01 Env
 - Ubuntu 18.04
@@ -16,11 +19,14 @@ baseline:
 
 ### 0x02 Install Docker && Docker-Compose
 - 执行下面的命令
+
 ```
 $ sudo apt update
 $ sudo apt install docker.io docker-compose
 ```
+
 - 检测docker运行状态
+
 ```
 $ sudo service docker status
 -----
@@ -35,7 +41,9 @@ $ sudo service docker status
            └─18078 docker-containerd --config /var/run/docker/containerd/containerd.toml
 -----
 ```
+
 - 查看版本号
+
 ```
 $ sudo docker version
 -----
@@ -70,6 +78,7 @@ OpenSSL version: OpenSSL 1.1.0g  2 Nov 2017
 
 ### 0x03 Download Hyperledger Fabric 二进制文件
 - 下载
+
 ```
 $ mkdir -p $HOME/fabric-network
 $ cd $HOME/fabric-network
@@ -77,7 +86,9 @@ $ curl https://nexus.hyperledger.org/content/repositories/releases/org/hyperledg
 
 $ curl https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric-ca/hyperledger-fabric-ca/linux-amd64-1.2.0/hyperledger-fabric-ca-linux-amd64-1.2.0.tar.gz -o hyperledger-fabric-ca-linux-amd64-1.2.0.tar.gz
 ```
+
 - 解压
+
 ```
 $ tar zxvf hyperledger-fabric-linux-amd64-1.2.0.tar.gz
 $ tar zxvf hyperledger-fabric-ca-linux-amd64-1.2.0.tar.gz
