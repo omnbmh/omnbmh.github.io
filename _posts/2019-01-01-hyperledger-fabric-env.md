@@ -13,10 +13,24 @@ Hyperledger项目是区块链技术中第一个面向企业应用场景开源分
 
 Github： https://github.com/hyperledger
 
-### 0x01 Env
+### 0x00 Env
 - Ubuntu 18.04
 - Docker 18.06.1-ce Docker-Compose 1.21.2
 - Hyperledger fabric 1.2.0
+
+### 0x01 Go
+- `apt install golang-go`
+- 设置环境变量
+```
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/go
+export PATH=$GOROOT/bin:$PATH
+```
+- 查看下版本
+```
+$ go version
+go version go1.10.4 linux/amd64
+```
 
 ### 0x02 Install Docker && Docker-Compose
 - 执行下面的命令

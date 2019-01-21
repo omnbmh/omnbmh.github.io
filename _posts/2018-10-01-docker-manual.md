@@ -26,5 +26,6 @@ DOCKER_OPTS="--registry-mirror=https://registry.docker-cn.com"
 重启 Docker 服务
 
 ```
+$ sudo systemctl daemon-reload
 $ sudo service docker restart
 ```
