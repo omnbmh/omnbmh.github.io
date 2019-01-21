@@ -8,6 +8,9 @@ baseline:
 ---
 
 ### 0x01 规划组织结构
+
+现阶段Fabric网络对于动态添加组织并不友好建议提前将组织规划好，再创建网络。
+
 - church.org
 - Orderer orderer.church.org
 - Buddhism buddhism.church.org 2*peer 1*user
