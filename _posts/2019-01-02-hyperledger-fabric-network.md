@@ -7,8 +7,6 @@ categories: [Hyperledger Fabric]
 baseline:
 ---
 
-# Hyperledger Fabric 网络搭建（二）
-
 ### 0x01 规划组织结构
 - church.org
 - Orderer orderer.church.org
@@ -17,6 +15,7 @@ baseline:
 
 ### 0x01 生成组织结构和身份证书
 - ChannelName churchchannel
+
 ```
 $ ./bin/cryptogen generate --config=./crypto-config.yaml
 
@@ -27,16 +26,23 @@ $ ./bin/configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-a
 $ ./bin/configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/TaoismMSPanchors.tx -channelID churchchannel -asOrg TaoismMSP
 
 ```
+
 ### 0x02 启动网络
+
 ```
 export COMPOSE_PROJECT_NAME=church
 docker-compose -p church -f docker-compose-cli.yaml up -d
 ```
 
 ### 进入容器
+
+```
 docker exec -it church_cli bash
+```
 
 ### 0x03 创建通道
+
+```
 export ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/church.org/orderers/orderer.church.org/msp/tlscacerts/tlsca.church.org-cert.pem
 
 peer channel create -o orderer.church.org:7050 -c churchchannel -t 50s -f ./channel-artifacts/channel.tx --tls --cafile $ORDERER_CA
@@ -70,3 +76,4 @@ export CORE_PEER_ADDRESS=peer0.taoism.church.org:7051
 加入通道
 peer channel join -b churchchannel.block
 peer channel list
+```
