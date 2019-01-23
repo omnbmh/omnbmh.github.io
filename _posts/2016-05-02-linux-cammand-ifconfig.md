@@ -3,7 +3,7 @@ layout: post
 title: Linux ifconfig 命令
 date: 2016-05-02 16:16:16
 tags: [linux,shell]
-categories: linux-manual
+categories: [linux-manual]
 baseline:
 ---
 

@@ -3,8 +3,8 @@ layout: post
 title: Linux mkdir 命令
 date: 2016-01-04 16:16:16
 tags: [linux,shell]
-categories: linux-manual
-baseline: 
+categories: [linux-manual]
+baseline:
 ---
 
 mkdir命令用来创建新目录。

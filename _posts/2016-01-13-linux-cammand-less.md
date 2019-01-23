@@ -3,7 +3,7 @@ layout: post
 title: Linux less 命令
 date: 2016-01-13 16:16:16
 tags: [linux,shell]
-categories: linux-manual
+categories: [linux-manual]
 baseline:
 ---
 
