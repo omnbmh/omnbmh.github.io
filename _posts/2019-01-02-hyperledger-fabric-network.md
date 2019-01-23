@@ -70,6 +70,10 @@ $ peer chaincode install -n $CHANNEL_NAME -v 1.0  -p github.com/chaincode/chainc
 # 实例化链码 初始化 a 100 b 100 积分 并指定背书策略
 $ peer chaincode instantiate -o orderer.church.org:7050 --tls ${CORE_PEER_TLS_ENABLED} --cafile $ORDERER_CA -C $CHANNEL_NAME -n churchchannel -v 1.0 -c '{"Args":["init","a","100","b","200"]}' -P "OR('BuddhismMSP.member','TaoismMSP.member')"
 
+# 查询下 ab的账户积分
+$ peer chaincode query -C churchchannel -n churchchannel -c '{"Args":["query","a"]}'
+$ peer chaincode query -C churchchannel -n churchchannel -c '{"Args":["query","b"]}'
+
 # 执行转账操作 a 给 b 10
 $ peer chaincode invoke -o orderer.church.org:7050  --tls ${CORE_PEER_TLS_ENABLED} --cafile $ORDERER_CA -C $CHANNEL_NAME -n churchchannel -c '{"Args":["invoke","a","b","10"]}'
 

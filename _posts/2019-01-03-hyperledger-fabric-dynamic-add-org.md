@@ -113,3 +113,108 @@ peer chaincode query -C $CHANNEL_NAME -n mycc -c '{"Args":["query","a"]}'
 peer chaincode invoke -o orderer.church.org:7050  --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n churchchannel -c '{"Args":["invoke","a","b","10"]}'
 
 peer chaincode query -C $CHANNEL_NAME -n mycc -c '{"Args":["query","a"]}'
+
+
+完结！！！
+
+### 基于 Fabric CA 生成的证书添加一个组织 ChristianityOrg
+
+- 证书目录 `/app/fabric-network/christianity-org/crypto-config`
+
+```
+# 将 orderer 的证书复制到 组织证书目录内
+$ cp -r crypto-config/ordererOrganizations lamaism-org/crypto-config/
+```
+
+#### 0x01 添加配置文件 configtx.yaml
+#### 0x02
+
+```
+../bin/configtxgen -printOrg ChristianityMSP > ../channel-artifacts/christianity.json
+```
+
+#### 0x03 进入 BuddhismMSP 客户端
+
+```
+$ docker exec -it church_cli bash
+$ peer channel list
+
+$ export ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/church.org/orderers/orderer.church.org/msp/tlscacerts/tlsca.church.org-cert.pem  && export CHANNEL_NAME=churchchannel
+
+peer channel fetch config config_block.pb -o orderer.church.org:7050 -c $CHANNEL_NAME --tls --cafile $ORDERER_CA
+
+configtxlator proto_decode --input config_block.pb --type common.Block | jq .data.data[0].payload.data.config > config.json
+
+# 添加 ChristianityMSP 加密资料 添加到通道的应用程序组字段 `modified_config.json`
+$ jq -s '.[0] * {"channel_group":{"groups":{"Application":{"groups": {"ChristianityMSP":.[1]}}}}}' config.json ./channel-artifacts/christianity.json > modified_config.json
+
+# 现在 在cli里 我们得到了两个json文件 `config.json` `modified_config.json`
+# 将 config.json 转换回 config.pb protobuf文件
+configtxlator proto_encode --input config.json --type common.Config --output config.pb
+
+# 将 modified_config.json 转换回 modified_config.pb
+$ configtxlator proto_encode --input modified_config.json --type common.Config --output modified_config.pb
+
+# 计算两个protobuf之间的增量 输出 christianity_update.pb
+$ configtxlator compute_update --channel_id $CHANNEL_NAME --original config.pb --updated modified_config.pb --output christianity_update.pb
+
+# 将 christianity_update.pb 转换为 `christianity_update.json`
+configtxlator proto_decode --input christianity_update.pb --type common.ConfigUpdate | jq . > christianity_update.json
+
+# 将标题加上 `christianity_update_in_envelope.json`
+echo '{"payload":{"header":{"channel_header":{"channel_id":"churchchannel", "type":2}},"data":{"config_update":'$(cat christianity_update.json)'}}}' | jq . > christianity_update_in_envelope.json
+
+转换成 protobuf `christianity_update_in_envelope.pb`
+configtxlator proto_encode --input christianity_update_in_envelope.json --type common.Envelope --output christianity_update_in_envelope.pb
+
+签名 并 提交配置更新 先让 BuddhismMSP 签名
+peer channel signconfigtx -f christianity_update_in_envelope.pb
+
+切换到 TaoismMSP
+export CORE_PEER_LOCALMSPID="TaoismMSP"
+
+export CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/taoism.church.org/peers/peer0.taoism.church.org/tls/ca.crt
+
+export CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/taoism.church.org/users/Admin@taoism.church.org/msp
+
+export CORE_PEER_ADDRESS=peer0.taoism.church.org:7051
+
+# 执行 update TaoismMSP将自动签名
+$ peer channel update -f christianity_update_in_envelope.pb -c $CHANNEL_NAME -o orderer.church.org:7050 --tls --cafile $ORDERER_CA
+
+
+
+
+
+```
+
+#### 0x04 启动 ChristianityMSP 新的peer节点
+```
+$ export COMPOSE_PROJECT_NAME=church
+$ docker-compose -p church -f docker-compose-cli-lamaism.yaml up -d
+```
+
+#### 0x05 安装链码
+
+```
+$ docker exec -it christianity_cli bash
+
+export ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/church.org/orderers/orderer.church.org/msp/tlscacerts/tlsca.church.org-cert.pem  && export CHANNEL_NAME=churchchannel
+
+# 获取通道块信息
+peer channel fetch 0 churchchannel.block -o orderer.church.org:7050 -c $CHANNEL_NAME --tls --cafile $ORDERER_CA
+
+# 加入通道
+peer channel join -b churchchannel.block
+
+# 安装链码
+peer chaincode install -n church -v 1.0 -p github.com/chaincode/chaincode_example02/go/
+
+# 实例化链码 通道上链码 只需实例化一次
+peer chaincode instantiate -o orderer.church.org:7050 --tls ${CORE_PEER_TLS_ENABLED} --cafile $ORDERER_CA -C $CHANNEL_NAME -n church -v 1.0 -c '{"Args":["init","a","100","b","200"]}' -P "OR('BuddhismMSP.member','TaoismMSP.member','LamaismMSP.member','ChristianityMSP.member')"
+
+peer chaincode query -C churchchannel -n church -c '{"Args":["query","a"]}'
+
+peer chaincode invoke -o orderer.church.org:7050  --tls $CORE_PEER_TLS_ENABLED --cafile $ORDERER_CA -C $CHANNEL_NAME -n church -c '{"Args":["invoke","a","b","10"]}'
+
+```
