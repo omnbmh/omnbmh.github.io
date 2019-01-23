@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hyperledger Fabric 动态添加通道（四）
-date: 2018-01-04 18:51:18
+date: 2019-01-04 18:51:18
 tags: [Hyperledger Fabric]
 categories: [Hyperledger Fabric]
 baseline:

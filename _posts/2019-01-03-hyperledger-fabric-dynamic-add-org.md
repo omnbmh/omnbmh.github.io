@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hyperledger Fabric 动态添加组织（三）
-date: 2018-01-03 18:51:18
+date: 2019-01-03 18:51:18
 tags: [Hyperledger Fabric]
 categories: [Hyperledger Fabric]
 baseline:
