@@ -7,7 +7,6 @@ categories: [Hyperledger Fabric]
 baseline:
 ---
 
-# Hyperledger Fabric 动态添加通道（四）
 export CHANNEL_NAME=carchannel
 ./bin/configtxgen -profile TwoOrgsChannel -outputCreateChannelTx ./channel-artifacts/carchannel.tx -channelID $CHANNEL_NAME
 $ ./bin/configtxgen -profile TwoOrgsChannel -outputAnchorPeersUpdate ./channel-artifacts/BuddhismMSPanchorsCar.tx -channelID $CHANNEL_NAME -asOrg BuddhismMSP
