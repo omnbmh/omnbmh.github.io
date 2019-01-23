@@ -3,7 +3,7 @@ layout: post
 title: Linux vi 命令
 date: 2016-01-01 16:16:16
 tags: [linux,shell]
-categories: [LinuxManual]
+categories: [linux-manual]
 baseline:
 ---
 
