@@ -38,4 +38,17 @@ $ docker save image_id > name_version.tar
 
 # 导入
 $ docker load < name_version.tar
+$ docker load -i name_version.tar
+```
+
+#### 0x03 更换 docker 储存位置
+
+```
+# 停服务
+service docker stop
+
+mv -f /var/lib/docker /opt/docker_data
+ln -s /opt/docker_data /var/lib/docker
+
+service docker start
 ```
