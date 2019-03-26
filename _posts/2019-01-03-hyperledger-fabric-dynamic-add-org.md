@@ -1,12 +1,15 @@
 ---
 layout: post
-title: Hyperledger Fabric 动态添加组织（三）
+title: Hyperledger Fabric 在指定通道中动态添加组织（三）
 date: 2019-01-03 18:51:18
 tags: [Hyperledger Fabric]
 categories: [Hyperledger Fabric]
 baseline:
 ---
-### 手动添加组织 LamaismMSP 到网络
+
+通过上节，我们成功的部署了一个简单的solo网络，其中我们规划了两个组织，后续要是有新的组织加入怎么办？
+
+### 手动添加组织 LamaismMSP 到通道
 #### 0x01 生成组织证书 基于`crypto-config-lamaism.yaml`
 
 ```

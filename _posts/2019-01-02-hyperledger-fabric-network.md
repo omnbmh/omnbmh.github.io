@@ -69,7 +69,7 @@ $ peer channel list
 $ peer chaincode install -n church -v 1.0  -p github.com/chaincode/chaincode_example02/go/
 # docker exec peer0.buddhism.church.org ls /var/hyperledger/production/chaincode
 # 实例化链码 初始化 a 100 b 100 积分 并指定背书策略
-$ peer chaincode instantiate -o orderer.church.org:7050 --tls ${CORE_PEER_TLS_ENABLED} --cafile $ORDERER_CA -C $CHANNEL_NAME -n church -v 1.0 -c '{"Args":["init","a","100","b","200"]}' -P "AND('BuddhismMSP.member','TaoismMSP.member')"
+$ peer chaincode instantiate -o orderer.church.org:7050 --tls ${CORE_PEER_TLS_ENABLED} --cafile $ORDERER_CA -C $CHANNEL_NAME -n church -v 1.0 -c '{"Args":["init","a","10000","b","20000"]}' -P "OR('BuddhismMSP.member','TaoismMSP.member')"
 
 # 查询下 ab的账户积分
 $ peer chaincode query -C $CHANNEL_NAME -n church -c '{"Args":["query","a"]}'

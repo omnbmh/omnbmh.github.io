@@ -52,3 +52,58 @@ ln -s /opt/docker_data /var/lib/docker
 
 service docker start
 ```
+
+### Docker Swarm
+
+```
+# 服务监控
+docker run -d --name visualizer --rm -p 8990:8080 -v /var/run/docker.sock:/var/run/docker.sock dockersamples/visualizer
+```
+```
+# docker config 共享文件
+```
+
+```
+# 使用 compose 文件
+```
+
+#### 服务名是域名的时候 无法进行通信 测试一下
+
+启动三个服务 分别使用 a.btc.io b.btc.io c.btc.io
+
+```
+# docker-compose.yaml
+version: '3'
+networks:
+  btc_network:
+
+services:
+  a.btc.io:
+    image: alpine:latest
+    command: ping baidu.com
+    networks:
+      - btc_network
+  b.btc.io:
+    image: alpine:latest
+    command: ping baidu.com
+    networks:
+      - btc_network
+  c.btc.io:
+    image: alpine:latest
+    command: ping baidu.com
+    networks:
+      - btc_network
+```
+
+```
+# 创建服务
+docker stack deploy aaa -c docker-compose-test-domain.yaml
+```
+
+经过测试 真的不行  可以使用  aliases 相当于当前服务的别名
+```
+networks:
+  btc_network:
+    aliases:
+      - c.btc.io
+```
