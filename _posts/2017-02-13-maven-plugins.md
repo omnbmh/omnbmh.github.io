@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Maven-Maven插件
+title: 【Maven】-Maven插件
 date: 2017-02-13 16:16:16
-tags: [maven,plugin]
 categories: [Maven]
+tags: [maven,plugin]
 baseline:
 ---
 
