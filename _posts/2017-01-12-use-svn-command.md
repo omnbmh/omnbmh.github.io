@@ -30,7 +30,6 @@ cd /path/to/code_dir
 svn commit -m '修改记录' .
 ```
 
-
 ### 查看历史日志
 - 切换到项目代码根目录
 
@@ -39,12 +38,10 @@ cd /path/to/code_dir
 svn log -l 5 -v .
 ```
 
-
 ### 创建新分支
 ```
 svn copy --parents -rHEAD -m ’创建新分支’ $trunk_repository_url $branches_repository_url
 ```
-
 
 ### 切换分支
 - 切换到项目代码根目录
@@ -53,7 +50,6 @@ svn copy --parents -rHEAD -m ’创建新分支’ $trunk_repository_url $branch
 cd /path/to/code_dir
 svn switch $need_switch_repository_url . -r HEAD --force
 ```
-
 
 ### 分支合并到主干
 - 切换到项目代码根目录
