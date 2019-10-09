@@ -1,8 +1,8 @@
 ---
 layout: post
 title: 本地搭建、部署JekyII
-date: 2019-01-01 10:10:10
-tags: [manual]
+date: 2017-10-11 11:11:11
+tags: [HowTo manual]
 ---
 
 有很多东西需要记下来,搭建一个博客系统方便查阅
