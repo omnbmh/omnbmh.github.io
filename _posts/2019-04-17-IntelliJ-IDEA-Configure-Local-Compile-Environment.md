@@ -3,7 +3,7 @@ layout: post
 title: IntellliJ IDEA 配置本底编译环境
 date: 2019-04-17 15:55:18
 tags: [linux]
-categories:
+categories: [IDE]
 baseline:
 ---
 
@@ -36,4 +36,5 @@ Revision:     a4f3f91a30d4e36d82cc7592c4a0726df52aba0d
 #### 0x04 配置 IntelliJ IDEA 的本地Gradle路径
 1. 打开 Preferences...
 2. 按照下图序号配置 点击 Apply Ok
-3. ![示例图]({{ site.url }}/assets/1555490136174.jpg)
+
+![示例图]({{ site.url }}/assets/1555490136174.jpg)
