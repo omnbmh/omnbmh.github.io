@@ -189,4 +189,9 @@ baseline:
 </plugin>
 ```
 
+```
+# 处理
+mvn mybatis-generator:generate -DskipTests -X
+```
+
 > http://blog.csdn.net/woshixuye/article/details/8133050
