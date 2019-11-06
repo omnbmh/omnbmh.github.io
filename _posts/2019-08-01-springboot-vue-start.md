@@ -27,6 +27,7 @@ mkdir cobra
 cd cobra
 ```
 
+
 2. 使用 Vue 创建前端项目
 
 ```
@@ -45,6 +46,7 @@ vue init webpack cobra-vue
 | static | 静态资源 图片 等 |
 | package.json | 项目配置文件 |
 | index.html | 首页文件 |
+
 
 3. 使用 Maven 创建 SpringBoot 项目
 
