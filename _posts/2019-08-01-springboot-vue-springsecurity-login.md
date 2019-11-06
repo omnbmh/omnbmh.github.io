@@ -19,6 +19,8 @@ artileno: 20190801_02
 - 基于内存用户的认证
 - 基于数据库用户的认证
 
+开始前，我们来做点准备工作
+
 * 0x01 添加 Maven 依赖
 
 ```
@@ -334,7 +336,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 访问 http://127.0.0.1:9999/hello 跳转到登录页面
 
-![登录页面]({{site.url}}/assets/20190801_02_01.png)
+![登录页面]({{site.url}}/assets/20190801_02_03.png)
 
 我们使用 testuser 用户登录成功，跳转到欢迎页面
 
