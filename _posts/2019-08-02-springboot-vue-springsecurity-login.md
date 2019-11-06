@@ -1,7 +1,7 @@
 ---
 layout: post
 title: SpringBoot+Vue实战（二）- 集成SpringSecurity实现用户登录功能
-date: 2019-08-01 19:50:00
+date: 2019-08-02 19:50:00
 tags: [Spring Boot, Vue]
 categories: [SpringBoot+Vue实战]
 baseline: 

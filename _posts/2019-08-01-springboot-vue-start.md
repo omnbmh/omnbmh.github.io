@@ -8,6 +8,8 @@ baseline:
 artileno: 20190801_01
 ---
 
+本次实战我和大家一起来完成一个后台管理系统。
+
 ## 环境搭建
 
 ### 项目开发环境
@@ -46,6 +48,7 @@ vue init webpack cobra-vue
 | static | 静态资源 图片 等 |
 | package.json | 项目配置文件 |
 | index.html | 首页文件 |
+
 
 
 3. 使用 Maven 创建 SpringBoot 项目
