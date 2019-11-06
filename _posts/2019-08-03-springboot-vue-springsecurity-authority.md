@@ -21,6 +21,7 @@ artileno: 20190803_01
 * 数据库中 角色名 必须增加上 ROLE_ 前缀
 
 资源和角色对应关系
+
 | 资源 | 角色 |
 | --- | --- |
 | /admin/hello | admin |
@@ -176,7 +177,7 @@ public class UserService implements UserDetailsService {
 * 静态权限分配
 * 动态权限分配 
 
-#### 动态权限分配 
+#### 静态权限分配 
 
 重写 WebSecurityConfig 中的 configure(HttpSecurity http) 方法
 
