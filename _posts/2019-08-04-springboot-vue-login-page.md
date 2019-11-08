@@ -28,6 +28,7 @@ Vue.use(ElementUI)
 > [查看源码](https://github.com/omnbmh/cobra/blob/master/cobra-vue/src/main.js)
 
 * 0x03 在 `src/components` 目录新增 `Login.vue`
+
 > [查看源码](https://github.com/omnbmh/cobra/blob/master/cobra-vue/src/components/Login.vue)
 
 * 0x04 编写 api.js 工具类
@@ -38,6 +39,7 @@ Vue.use(ElementUI)
 
 
 * 0x05 在 `main.js` 中 导入 api 将 get post 方法,添加到 prototype中
+
 ```
 import {getRequest} from './utils/api'
 import {postRequest} from './utils/api'
@@ -46,7 +48,7 @@ Vue.prototype.getRequest = getRequest
 Vue.prototype.postRequest = postRequest
 ```
 
-* 0x06 在登录功能中，使用了Vuex的store模块，编写 store 中变量和方法 新建 `src/store/index.js`
+* 0x06 在登录功能中，使用了Vuex的store模块，编写 store 中变量和方法 新建 `src/store/index.js` 
 
 ```
 import Vue from 'vue'
@@ -68,6 +70,7 @@ export default new Vuex.Store({
     actions:{}
 });
 ```
+
 > [查看源码](https://github.com/omnbmh/cobra/blob/master/cobra-vue/src/store/index.js)
 
 代码中 login 方法是成功登录后 将当前用户信息写入 storage
