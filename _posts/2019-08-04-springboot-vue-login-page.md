@@ -139,16 +139,16 @@ ONE  Compiled successfully in 2328ms                                            
 
 登录成功后，跳转
 
-![首页]({{site.url}}/assets/20190804_01_01.png)
+![首页]({{site.url}}/assets/20190804_01_02.png)
 
 #### 问题
-* 1. 登录老是 cors 跨域问题
+* 登录老是 cors 跨域问题
 
 ```
 修改后台代码 WebSecurity formLogin
 ```
 
-* 2. 老是报错 `_this.$store.commit` 没有 commit 属性
+* 老是报错 `_this.$store.commit` 没有 commit 属性
 
 ```
 在 main.js 中 new Vue 的时候，加上  store
