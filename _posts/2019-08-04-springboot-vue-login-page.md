@@ -38,7 +38,8 @@ Vue.use(ElementUI)
 > [查看源码](https://github.com/omnbmh/cobra/blob/master/cobra-vue/src/utils/api.js)
 
 
-* 0x05 在 `main.js` 中 导入 api 将 get post 方法,添加到 prototype中
+* 0x05 在 `main.js` 中 导入 api 将 get post 方法,添加到 prototype 中
+
 
 ```
 import {getRequest} from './utils/api'
@@ -46,9 +47,11 @@ import {postRequest} from './utils/api'
 
 Vue.prototype.getRequest = getRequest
 Vue.prototype.postRequest = postRequest
+
 ```
 
-* 0x06 在登录功能中，使用了Vuex的store模块，编写 store 中变量和方法 新建 `src/store/index.js` 
+
+* 0x06 在登录功能中，使用了Vuex的store模块，编写 store 中变量和方法 新建 `src/store/index.js` 文件
 
 ```
 import Vue from 'vue'
