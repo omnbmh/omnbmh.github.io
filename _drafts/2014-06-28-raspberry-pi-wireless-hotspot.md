@@ -1,0 +1,1 @@
+wpa_group_rekey=3600
