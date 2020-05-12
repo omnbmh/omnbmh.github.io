@@ -51,7 +51,6 @@ hbase(main):011:0> list_namespace
 NAMESPACE
 default
 hbase
-jiuji
 testhbase                                                                                                                                                                            
 4 row(s) in 0.5390 seconds
 ```
