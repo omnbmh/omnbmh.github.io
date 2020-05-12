@@ -6,7 +6,7 @@ categories: [Hbase]
 tags: [Hbase,Shell]
 ---
 
-下载 hbase-1.6.0-bin.tar.gz 链接:https://pan.baidu.com/s/1kk4ZaICYNfCsVrl0mpn8XQ  密码:e6dd
+下载 hbase-1.6.0-bin.tar.gz 链接:[https://pan.baidu.com/s/1kk4ZaICYNfCsVrl0mpn8XQ](https://pan.baidu.com/s/1kk4ZaICYNfCsVrl0mpn8XQ)  密码:e6dd
 
 ### 客户端配置
 
@@ -18,7 +18,6 @@ export JAVA_HOME=/path_to/jdk
 ```
 
 - 修改配置文件 conf/hbase-site.xml
-
 ```xml
 <configuration>
 <property>  
@@ -102,4 +101,23 @@ hbase(main):039:0> get 'tp:sys','10001','col_user:basic_info'
 COLUMN                                         CELL                                                                                                                                  
  col_user:basic_info                           timestamp=1589269786766, value={"name":"Sam","age":27}                                                                                
 1 row(s) in 0.0400 seconds
+```
+
+- count 表中的数据
+```
+hbase(main):042:0> count 'tp:sys'
+2 row(s) in 0.0140 seconds
+
+=> 2
+```
+
+- scan 模糊查询表中的数据
+
+```
+hbase(main):043:0> scan 'tp:sys'
+ROW                                            COLUMN+CELL                                                                                                                           
+ 10001                                         column=col_user:bankcards, timestamp=1589269848710, value=[{"card_no":"6225"},[{"card_no":"6221"}]                                    
+ 10001                                         column=col_user:basic_info, timestamp=1589269786766, value={"name":"Sam","age":27}                                                    
+ 10002                                         column=col_user:bankcards, timestamp=1589270266409, value=[{"card_no":"6225"},[{"card_no":"6221"}]                                    
+2 row(s) in 0.0410 seconds
 ```
