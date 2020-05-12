@@ -13,11 +13,13 @@ tags: [Hbase,Shell]
 需要修改两个配置文件
 
 - 修改配置文件 conf/hbase-env.sh
+
 ```shell
 export JAVA_HOME=/path_to/jdk
 ```
 
 - 修改配置文件 conf/hbase-site.xml
+
 ```xml
 <configuration>
 <property>  
@@ -32,15 +34,18 @@ export JAVA_HOME=/path_to/jdk
 ```
 
 ### 常用Hbase Shell操作
+
 #### namespace
 
 - 创建namespace
+
 ```
 hbase(main):010:0> create_namespace 'testhbase'
 0 row(s) in 1.6130 seconds
 ```
 
 - 查看namespace列表
+
 ```
 hbase(main):011:0> list_namespace
 NAMESPACE
@@ -52,6 +57,7 @@ testhbase
 ```
 
 - 删除namespace
+
 ```
 hbase(main):013:0> drop_namespace 'testhbase'
 0 row(s) in 0.9450 seconds
@@ -60,6 +66,7 @@ hbase(main):013:0> drop_namespace 'testhbase'
 #### table
 
 - 在namespace tp 下 创建表 sys 包含两个列族
+
 ```
 hbase(main):022:0> create 'tp:sys','col_user','col_limits'
 0 row(s) in 1.9310 seconds
@@ -68,6 +75,7 @@ hbase(main):022:0> create 'tp:sys','col_user','col_limits'
 ```
 
 - 向表 `tp:sys` 添加一条记录 rowKey 是 10001
+
 ```
 hbase(main):027:0> put 'tp:sys','10001','col_user:basic_info','{"name":"Sam","age":27}'
 0 row(s) in 0.2560 seconds
@@ -77,6 +85,7 @@ hbase(main):028:0> put 'tp:sys','10001','col_user:bankcards','[{"card_no":"6225"
 ```
 
 - 查看上面插入的数据 查询指定rowKey行的数据
+
 ```
 hbase(main):037:0> get 'tp:sys','10001'
 COLUMN                                         CELL                                                                                                                                  
@@ -96,6 +105,7 @@ COLUMN                                         CELL
 ```
 
 - 查看Cell数据单元的数据
+
 ```
 hbase(main):039:0> get 'tp:sys','10001','col_user:basic_info'
 COLUMN                                         CELL                                                                                                                                  
@@ -104,6 +114,7 @@ COLUMN                                         CELL
 ```
 
 - count 表中的数据
+
 ```
 hbase(main):042:0> count 'tp:sys'
 2 row(s) in 0.0140 seconds
