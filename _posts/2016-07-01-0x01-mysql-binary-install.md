@@ -9,8 +9,7 @@ baseline:
 
 ### 准备二进制文件
 
-下载 mysql-5.7.30-linux-glibc2.12-x86_64.tar.gz 链接: [https://pan.baidu.com/s/1frQhhPkqVPitgkZeVkHgHw](https://pan.baidu.com/s/1frQhhPkqVPitgkZeVkHgHw) 提取码: hs8b
-
+- mysql-5.7.30-linux-glibc2.12-x86_64.tar.gz 链接: [https://pan.baidu.com/s/1frQhhPkqVPitgkZeVkHgHw](https://pan.baidu.com/s/1frQhhPkqVPitgkZeVkHgHw) 提取码: hs8b
 - 主机IP 10.10.10.10
 
 ### 安装
@@ -27,6 +26,7 @@ mysql-5.7.30-linux-glibc2.12-x86_64.tar.gz
 ```
 
 解压 tar.gz 包
+
 ```
 $ cd /app
 $ tar zxf mysql-5.7.30-linux-glibc2.12-x86_64.tar.gz
@@ -85,6 +85,7 @@ A temporary password is generated for root@localhost: y/Bgcwy,r9id
 MySQL 配置文件配置项 非常多 参考官方文档:
 
 - 最小化配置文件
+
 ```
 [mysqld]
 basedir=/app/mysql-5.7.30-linux-glibc2.12-x86_64
