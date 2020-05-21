@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [MySQL系列] 0x01 MySQL二进制安装及配置
+title: MySQL系列 0x01. MySQL二进制安装及配置
 date: 2016-07-01 16:16:16
 tags: [MySQL]
 categories: [MySQL系列]
