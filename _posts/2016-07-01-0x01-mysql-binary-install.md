@@ -1,6 +1,6 @@
 ---
 layout: post
-title: MySQL系列 0x01. MySQL二进制安装及配置
+title: 【MySQL系列】 0x01. MySQL二进制安装及配置
 date: 2016-07-01 16:16:16
 tags: [MySQL]
 categories: [MySQL系列]
@@ -9,7 +9,8 @@ baseline:
 
 ### 准备二进制文件
 
-- mysql-5.7.30-linux-glibc2.12-x86_64.tar.gz 链接: [https://pan.baidu.com/s/1frQhhPkqVPitgkZeVkHgHw](https://pan.baidu.com/s/1frQhhPkqVPitgkZeVkHgHw) 提取码: hs8b
+- mysql-5.7.30-linux-glibc2.12-x86_64.tar.gz
+  - 链接: [https://pan.baidu.com/s/1frQhhPkqVPitgkZeVkHgHw](https://pan.baidu.com/s/1frQhhPkqVPitgkZeVkHgHw) 提取码: hs8b
 - 主机IP 10.10.10.10
 
 ### 安装
@@ -177,3 +178,39 @@ mysql> ALTER USER USER() IDENTIFIED BY '123456';
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
+
+### 远程登录，并执行一些SQL
+
+```
+$ mysql -h 10.10.10.10 -P 3306 -uroot -p
+
+--- out
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 14
+Server version: 5.7.30 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2016, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.04 sec)
+
+mysql>
+
+```
+
+###

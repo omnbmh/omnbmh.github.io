@@ -1,6 +1,6 @@
 ---
 layout: post
-title: IntellliJ IDEA 配置本底编译环境
+title: IntellliJ IDEA 配置本地编译环境
 date: 2019-04-17 15:55:18
 tags: [linux]
 categories: [IDE]
