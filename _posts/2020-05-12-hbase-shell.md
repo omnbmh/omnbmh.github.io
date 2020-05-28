@@ -6,7 +6,9 @@ categories: [Hbase]
 tags: [Hbase,Shell]
 ---
 
-下载 hbase-1.6.0-bin.tar.gz 链接:[https://pan.baidu.com/s/1kk4ZaICYNfCsVrl0mpn8XQ](https://pan.baidu.com/s/1kk4ZaICYNfCsVrl0mpn8XQ)  密码:e6dd
+### 准备二进制文件
+- hbase-1.6.0-bin.tar.gz
+  - 链接:[https://pan.baidu.com/s/1kk4ZaICYNfCsVrl0mpn8XQ](https://pan.baidu.com/s/1kk4ZaICYNfCsVrl0mpn8XQ)  密码:e6dd
 
 ### 客户端配置
 
@@ -62,6 +64,29 @@ hbase(main):013:0> drop_namespace 'testhbase'
 0 row(s) in 0.9450 seconds
 ```
 
+- 查看 namespace 的表
+
+```
+hbase(main):013:0> list_namespace_tables 'testhbase'
+0 row(s) in 0.9450 seconds
+```
+
+- 修改 namespace
+
+```
+hbase(main):006:0> alter_namespace 'tp', {METHOD => 'set', NAME => 'test'}
+0 row(s) in 0.9200 seconds
+```
+
+- 查看 namespace 的描述
+
+```
+hbase(main):004:0> describe_namespace 'tp'
+DESCRIPTION                                                                                                                                                                          
+{NAME => 'tp'}                                                                                                                                                                       
+1 row(s) in 0.3020 seconds
+```
+
 #### table
 
 - 在namespace tp 下 创建表 sys 包含两个列族
@@ -112,6 +137,13 @@ COLUMN                                         CELL
 1 row(s) in 0.0400 seconds
 ```
 
+- 删除一行记录by RowKey
+
+```
+hbase(main):006:0> deleteall 'tp:sys','10001'
+0 row(s) in 1.1700 seconds
+```
+
 - count 表中的数据
 
 ```
@@ -131,3 +163,7 @@ ROW                                            COLUMN+CELL
  10002                                         column=col_user:bankcards, timestamp=1589270266409, value=[{"card_no":"6225"},[{"card_no":"6221"}]                                    
 2 row(s) in 0.0410 seconds
 ```
+
+
+
+> [Hbase Namespace Commands and Examples](https://dwgeek.com/hbase-namespace-commands-examples.html/)
